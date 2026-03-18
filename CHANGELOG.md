@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.2.0](https://github.com/voxpupuli/onceover-codequality/tree/v1.2.0) (2026-03-18)
+
+[Full Changelog](https://github.com/voxpupuli/onceover-codequality/compare/v1.1.0...v1.2.0)
+
+**Implemented enhancements:**
+
+- add: special handling for GitHub Actions annotations from `puppet-lint` [\#59](https://github.com/voxpupuli/onceover-codequality/pull/59) ([griggi-ws](https://github.com/griggi-ws))
+- openvox-strings: allow 7.x [\#56](https://github.com/voxpupuli/onceover-codequality/pull/56) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.1.0](https://github.com/voxpupuli/onceover-codequality/tree/v1.1.0) (2025-10-29)
 
 [Full Changelog](https://github.com/voxpupuli/onceover-codequality/compare/v1.0.0...v1.1.0)
