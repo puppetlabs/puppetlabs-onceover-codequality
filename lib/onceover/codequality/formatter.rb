@@ -11,7 +11,11 @@ class Onceover
       def self.end_test(output, ok, show_output = false)
         if !ok || show_output
           output.each_line do |line|
-            logger.info("\t#{line.chomp}")
+            if line.start_with?('::') # This is special syntax for GitHub annotations
+              puts(line)
+            else
+              logger.info("\t#{line.chomp}")
+            end
           end
         end
 
