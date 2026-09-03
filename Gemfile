@@ -1,9 +1,28 @@
-source "https://rubygems.org"
+# For puppetcore, set GEM_SOURCE_PUPPETCORE = 'https://rubygems-puppetcore.puppet.com'
+gemsource_default = ENV['GEM_SOURCE'] || 'https://rubygems.org'
+gemsource_puppetcore = if ENV['GEM_SOURCE']
+                         gemsource_default
+                       elsif ENV['PUPPET_FORGE_TOKEN']
+                         'https://rubygems-puppetcore.puppet.com'
+                       else
+                         ENV['GEM_SOURCE_PUPPETCORE'] || gemsource_default
+                       end
+source gemsource_default
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-# Specify your gem's dependencies in onceover-helloworld.gemspec
 gemspec
+
+# Route through gemsource_puppetcore so CI can resolve puppet ~> 9.0 from the
+# private Puppetcore registry (public rubygems.org tops out at puppet 8.10.0).
+# When PUPPET_FORGE_TOKEN is unset (e.g. fork PRs, local dev without a token),
+# gemsource_puppetcore falls through to gemsource_default (public rubygems.org)
+# and no auth is attempted against Puppetcore. Without this, bundler was free
+# to resolve the lowest puppet version satisfying all constraints (8.10.0),
+# which doesn't even boot on Ruby 3.4 ("Cannot determine basic system
+# flavour") -- and CI's per-matrix-job PUPPET_GEM_VERSION env var had nothing
+# in the Gemfile to actually consume it.
+gem 'puppet', ENV['PUPPET_GEM_VERSION'] || '~> 8', source: gemsource_puppetcore
 
 # Windows platform runtime deps. The published puppet/onceover rubygems.org
 # artefacts are built on Linux and guard `ffi` / `win32ole` with build-host
@@ -15,6 +34,10 @@ gemspec
 platforms :mingw, :x64_mingw, :mswin do
   gem 'ffi', '>= 1.15.5', '< 1.17.0', '!= 1.16.0', '!= 1.16.1', '!= 1.16.2'
   gem 'win32ole', '>= 1.8', '< 2.0'
+end
+
+group :development do
+  gem 'rubocop'
 end
 
 group :release, optional: true do

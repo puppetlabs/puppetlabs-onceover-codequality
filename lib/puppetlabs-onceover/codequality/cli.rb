@@ -1,11 +1,11 @@
-require "onceover/codequality/lint"
-require "onceover/codequality/syntax"
-require "onceover/codequality/docs"
-require "onceover/codequality/puppetfile"
-require "onceover/codequality/environment"
-require "onceover/codequality/executor"
-require "onceover/codequality/formatter"
-class Onceover
+require "puppetlabs-onceover/codequality/lint"
+require "puppetlabs-onceover/codequality/syntax"
+require "puppetlabs-onceover/codequality/docs"
+require "puppetlabs-onceover/codequality/puppetfile"
+require "puppetlabs-onceover/codequality/environment"
+require "puppetlabs-onceover/codequality/executor"
+require "puppetlabs-onceover/codequality/formatter"
+class PuppetlabsOnceover
   module CodeQuality
     class CLI
       def self.command
@@ -34,19 +34,19 @@ class Onceover
             logger.info "Running Code Quality tests"
 
             if !no_puppetfile
-              status &= Onceover::CodeQuality::Puppetfile.puppetfile
+              status &= PuppetlabsOnceover::CodeQuality::Puppetfile.puppetfile
             end
 
             if !no_syntax
-              status &= Onceover::CodeQuality::Syntax.puppet
+              status &= PuppetlabsOnceover::CodeQuality::Syntax.puppet
             end
 
             if !no_lint
-              status &= Onceover::CodeQuality::Lint.puppet
+              status &= PuppetlabsOnceover::CodeQuality::Lint.puppet
             end
 
             if !no_docs
-              status &= Onceover::CodeQuality::Docs.puppet_strings(html_docs)
+              status &= PuppetlabsOnceover::CodeQuality::Docs.puppet_strings(html_docs)
             end
 
             if status
@@ -62,4 +62,4 @@ class Onceover
   end
 end
 
-Onceover::CLI::Run.command.add_command(Onceover::CodeQuality::CLI.command)
+PuppetlabsOnceover::CLI::Run.command.add_command(PuppetlabsOnceover::CodeQuality::CLI.command)

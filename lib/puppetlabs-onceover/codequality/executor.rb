@@ -1,4 +1,4 @@
-class Onceover
+class PuppetlabsOnceover
   module CodeQuality
     module Executor
       # Capture all program output and check the exit status was zero

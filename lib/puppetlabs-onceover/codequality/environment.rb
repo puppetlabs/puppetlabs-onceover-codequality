@@ -1,4 +1,4 @@
-class Onceover
+class PuppetlabsOnceover
   module CodeQuality
     module Environment
       ENVIRONMENT_CONF = "environment.conf"
