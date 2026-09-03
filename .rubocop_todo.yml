@@ -12,7 +12,7 @@
 # Include: **/*.gemspec
 Gemspec/RequireMFA:
   Exclude:
-    - 'onceover-codequality.gemspec'
+    - 'puppetlabs-onceover-codequality.gemspec'
 
 # Offense count: 5
 # This cop supports safe autocorrection (--autocorrect).
@@ -132,13 +132,13 @@ Style/Documentation:
 # This cop supports safe autocorrection (--autocorrect).
 Style/Encoding:
   Exclude:
-    - 'onceover-codequality.gemspec'
+    - 'puppetlabs-onceover-codequality.gemspec'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 Style/ExpandPathArguments:
   Exclude:
-    - 'onceover-codequality.gemspec'
+    - 'puppetlabs-onceover-codequality.gemspec'
 
 # Offense count: 22
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -237,13 +237,13 @@ Style/OptionalBooleanParameter:
 # Configuration parameters: PreferredDelimiters.
 Style/PercentLiteralDelimiters:
   Exclude:
-    - 'onceover-codequality.gemspec'
+    - 'puppetlabs-onceover-codequality.gemspec'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 Style/RedundantPercentQ:
   Exclude:
-    - 'onceover-codequality.gemspec'
+    - 'puppetlabs-onceover-codequality.gemspec'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
