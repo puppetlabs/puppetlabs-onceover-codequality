@@ -40,6 +40,10 @@ group :development do
   gem 'rubocop'
 end
 
+group :test do
+  gem 'simplecov', require: false
+end
+
 group :release, optional: true do
   gem 'faraday-retry', require: false
   gem 'github_changelog_generator', require: false
