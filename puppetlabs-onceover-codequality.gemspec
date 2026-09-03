@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["modules-team@puppet.com"]
   spec.license       = "Apache-2.0"
 
-  spec.summary       = %q{Lint and syntax validation for onceover}
+  spec.summary       = %q{Lint and syntax validation for puppetlabs-onceover}
   spec.homepage      = "https://github.com/puppetlabs/puppetlabs-onceover-codequality"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
