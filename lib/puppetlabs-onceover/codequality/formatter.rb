@@ -1,4 +1,4 @@
-class Onceover
+class PuppetlabsOnceover
   module CodeQuality
     module Formatter
       START_TEST = "Checking".freeze

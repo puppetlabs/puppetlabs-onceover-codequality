@@ -1,6 +1,6 @@
 # Support for generating documentation using Puppet Strings for each module
 # listed in the environment.conf modulepath
-class Onceover
+class PuppetlabsOnceover
   module CodeQuality
     module Docs
       def self.puppet_strings(html_docs)

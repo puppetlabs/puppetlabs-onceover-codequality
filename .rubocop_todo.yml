@@ -18,22 +18,22 @@ Gemspec/RequireMFA:
 # This cop supports safe autocorrection (--autocorrect).
 Lint/AmbiguousRegexpLiteral:
   Exclude:
-    - 'spec/onceover/environment_spec.rb'
-    - 'spec/onceover/lint_spec.rb'
-    - 'spec/onceover/puppetfile_spec.rb'
-    - 'spec/onceover/syntax_spec.rb'
+    - 'spec/puppetlabs-onceover/environment_spec.rb'
+    - 'spec/puppetlabs-onceover/lint_spec.rb'
+    - 'spec/puppetlabs-onceover/puppetfile_spec.rb'
+    - 'spec/puppetlabs-onceover/syntax_spec.rb'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: IgnoreEmptyBlocks, AllowUnusedKeywordArguments.
 Lint/UnusedBlockArgument:
   Exclude:
-    - 'lib/onceover/codequality/cli.rb'
+    - 'lib/puppetlabs-onceover/codequality/cli.rb'
 
 # Offense count: 1
 Lint/UselessAssignment:
   Exclude:
-    - 'lib/onceover/codequality/environment.rb'
+    - 'lib/puppetlabs-onceover/codequality/environment.rb'
 
 # Offense count: 2
 # Configuration parameters: AllowedMethods, AllowedPatterns, CountRepeatedAttributes.
@@ -64,26 +64,26 @@ Metrics/PerceivedComplexity:
 # Offense count: 1
 Naming/AccessorMethodName:
   Exclude:
-    - 'lib/onceover/codequality/environment.rb'
+    - 'lib/puppetlabs-onceover/codequality/environment.rb'
 
 # Offense count: 1
 # Configuration parameters: EnforcedStyleForLeadingUnderscores.
 # SupportedStylesForLeadingUnderscores: disallowed, required, optional
 Naming/MemoizedInstanceVariableName:
   Exclude:
-    - 'lib/onceover/codequality/cli.rb'
+    - 'lib/puppetlabs-onceover/codequality/cli.rb'
 
 # Offense count: 1
 # Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.
 # AllowedNames: as, at, by, cc, db, id, if, in, io, ip, of, on, os, pp, to
 Naming/MethodParameterName:
   Exclude:
-    - 'lib/onceover/codequality/formatter.rb'
+    - 'lib/puppetlabs-onceover/codequality/formatter.rb'
 
 # Offense count: 1
 Security/Open:
   Exclude:
-    - 'lib/onceover/codequality/environment.rb'
+    - 'lib/puppetlabs-onceover/codequality/environment.rb'
 
 # Offense count: 7
 # This cop supports safe autocorrection (--autocorrect).
@@ -94,9 +94,9 @@ Security/Open:
 # AllowedMethods: lambda, proc, it
 Style/BlockDelimiters:
   Exclude:
-    - 'lib/onceover/codequality/docs.rb'
-    - 'lib/onceover/codequality/environment.rb'
-    - 'lib/onceover/codequality/lint.rb'
+    - 'lib/puppetlabs-onceover/codequality/docs.rb'
+    - 'lib/puppetlabs-onceover/codequality/environment.rb'
+    - 'lib/puppetlabs-onceover/codequality/lint.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -104,13 +104,13 @@ Style/BlockDelimiters:
 # SupportedStyles: assign_to_condition, assign_inside_condition
 Style/ConditionalAssignment:
   Exclude:
-    - 'lib/onceover/codequality/lint.rb'
+    - 'lib/puppetlabs-onceover/codequality/lint.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 Style/DefWithParentheses:
   Exclude:
-    - 'lib/onceover/codequality/environment.rb'
+    - 'lib/puppetlabs-onceover/codequality/environment.rb'
 
 # Offense count: 9
 # Configuration parameters: AllowedConstants.
@@ -118,15 +118,15 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
-    - 'lib/onceover/codequality.rb'
-    - 'lib/onceover/codequality/cli.rb'
-    - 'lib/onceover/codequality/docs.rb'
-    - 'lib/onceover/codequality/environment.rb'
-    - 'lib/onceover/codequality/executor.rb'
-    - 'lib/onceover/codequality/formatter.rb'
-    - 'lib/onceover/codequality/lint.rb'
-    - 'lib/onceover/codequality/puppetfile.rb'
-    - 'lib/onceover/codequality/syntax.rb'
+    - 'lib/puppetlabs-onceover/codequality.rb'
+    - 'lib/puppetlabs-onceover/codequality/cli.rb'
+    - 'lib/puppetlabs-onceover/codequality/docs.rb'
+    - 'lib/puppetlabs-onceover/codequality/environment.rb'
+    - 'lib/puppetlabs-onceover/codequality/executor.rb'
+    - 'lib/puppetlabs-onceover/codequality/formatter.rb'
+    - 'lib/puppetlabs-onceover/codequality/lint.rb'
+    - 'lib/puppetlabs-onceover/codequality/puppetfile.rb'
+    - 'lib/puppetlabs-onceover/codequality/syntax.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -151,16 +151,16 @@ Style/FrozenStringLiteralComment:
 # Configuration parameters: AllowedVariables.
 Style/GlobalVars:
   Exclude:
-    - 'spec/onceover/lint_spec.rb'
-    - 'spec/onceover/puppetfile_spec.rb'
-    - 'spec/onceover/syntax_spec.rb'
+    - 'spec/puppetlabs-onceover/lint_spec.rb'
+    - 'spec/puppetlabs-onceover/puppetfile_spec.rb'
+    - 'spec/puppetlabs-onceover/syntax_spec.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: MinBodyLength, AllowConsecutiveConditionals.
 Style/GuardClause:
   Exclude:
-    - 'lib/onceover/codequality/environment.rb'
+    - 'lib/puppetlabs-onceover/codequality/environment.rb'
 
 # Offense count: 11
 # This cop supports safe autocorrection (--autocorrect).
@@ -170,8 +170,8 @@ Style/GuardClause:
 Style/HashSyntax:
   Exclude:
     - 'Rakefile'
-    - 'lib/onceover/codequality/cli.rb'
-    - 'lib/onceover/codequality/syntax.rb'
+    - 'lib/puppetlabs-onceover/codequality/cli.rb'
+    - 'lib/puppetlabs-onceover/codequality/syntax.rb'
     - 'spec/testcase/bad_puppetfile/Puppetfile'
     - 'spec/testcase/good_puppetfile/Puppetfile'
 
@@ -179,19 +179,19 @@ Style/HashSyntax:
 # This cop supports safe autocorrection (--autocorrect).
 Style/IfUnlessModifier:
   Exclude:
-    - 'lib/onceover/codequality/cli.rb'
+    - 'lib/puppetlabs-onceover/codequality/cli.rb'
 
 # Offense count: 6
 # This cop supports safe autocorrection (--autocorrect).
 # Configuration parameters: AllowedMethods, AllowedPatterns.
 Style/MethodCallWithoutArgsParentheses:
   Exclude:
-    - 'spec/onceover/environment_spec.rb'
+    - 'spec/puppetlabs-onceover/environment_spec.rb'
 
 # Offense count: 1
 Style/MultilineBlockChain:
   Exclude:
-    - 'lib/onceover/codequality/environment.rb'
+    - 'lib/puppetlabs-onceover/codequality/environment.rb'
 
 # Offense count: 2
 # This cop supports unsafe autocorrection (--autocorrect-all).
@@ -199,8 +199,8 @@ Style/MultilineBlockChain:
 # SupportedStyles: literals, strict
 Style/MutableConstant:
   Exclude:
-    - 'lib/onceover/codequality/environment.rb'
-    - 'lib/onceover/codequality/lint.rb'
+    - 'lib/puppetlabs-onceover/codequality/environment.rb'
+    - 'lib/puppetlabs-onceover/codequality/lint.rb'
 
 # Offense count: 4
 # This cop supports safe autocorrection (--autocorrect).
@@ -208,13 +208,13 @@ Style/MutableConstant:
 # SupportedStyles: both, prefix, postfix
 Style/NegatedIf:
   Exclude:
-    - 'lib/onceover/codequality/cli.rb'
+    - 'lib/puppetlabs-onceover/codequality/cli.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 Style/NegatedIfElseCondition:
   Exclude:
-    - 'lib/onceover/codequality/lint.rb'
+    - 'lib/puppetlabs-onceover/codequality/lint.rb'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
@@ -222,15 +222,15 @@ Style/NegatedIfElseCondition:
 # SupportedStyles: skip_modifier_ifs, always
 Style/Next:
   Exclude:
-    - 'lib/onceover/codequality/docs.rb'
-    - 'lib/onceover/codequality/lint.rb'
+    - 'lib/puppetlabs-onceover/codequality/docs.rb'
+    - 'lib/puppetlabs-onceover/codequality/lint.rb'
 
 # Offense count: 1
 # Configuration parameters: AllowedMethods.
 # AllowedMethods: respond_to_missing?
 Style/OptionalBooleanParameter:
   Exclude:
-    - 'lib/onceover/codequality/formatter.rb'
+    - 'lib/puppetlabs-onceover/codequality/formatter.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -250,7 +250,7 @@ Style/RedundantPercentQ:
 # Configuration parameters: AllowMultipleReturnValues.
 Style/RedundantReturn:
   Exclude:
-    - 'lib/onceover/codequality/executor.rb'
+    - 'lib/puppetlabs-onceover/codequality/executor.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -258,7 +258,7 @@ Style/RedundantReturn:
 # SupportedStyles: slashes, percent_r, mixed
 Style/RegexpLiteral:
   Exclude:
-    - 'lib/onceover/codequality/environment.rb'
+    - 'lib/puppetlabs-onceover/codequality/environment.rb'
 
 # Offense count: 119
 # This cop supports safe autocorrection (--autocorrect).
@@ -273,7 +273,7 @@ Style/StringLiterals:
 # AllowedMethods: define_method
 Style/SymbolProc:
   Exclude:
-    - 'lib/onceover/codequality/environment.rb'
+    - 'lib/puppetlabs-onceover/codequality/environment.rb'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
@@ -281,4 +281,4 @@ Style/SymbolProc:
 # SupportedStylesForMultiline: comma, consistent_comma, no_comma
 Style/TrailingCommaInArrayLiteral:
   Exclude:
-    - 'lib/onceover/codequality/lint.rb'
+    - 'lib/puppetlabs-onceover/codequality/lint.rb'

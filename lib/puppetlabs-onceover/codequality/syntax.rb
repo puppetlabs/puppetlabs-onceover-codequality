@@ -1,4 +1,4 @@
-class Onceover
+class PuppetlabsOnceover
   module CodeQuality
     module Syntax
       def self.puppet
@@ -8,13 +8,13 @@ class Onceover
         # puppet-syntax
         #
 
-        CodeQuality::Formatter.start_test("puppet-syntax rake task")
-        # puppet-syntax seems to assign $stdout/$stderr internally in ways that
+        CodeQuality::Formatter.start_test("puppetlabs-syntax rake task")
+        # puppetlabs-syntax seems to assign $stdout/$stderr internally in ways that
         # prevent capturing output. As a nasty hack, run it as inline ruby and
         # capture the output from the process...
         inline_ruby = <<-RUBY_CODE
-          require 'puppet-syntax/tasks/puppet-syntax'
-          PuppetSyntax.exclude_paths = ['vendor/**/*','spec/templates/*.erb']
+          require 'puppetlabs-syntax/tasks/puppetlabs-syntax'
+          PuppetlabsSyntax.exclude_paths = ['vendor/**/*','spec/templates/*.erb']
           Rake::Task['syntax'].invoke
         RUBY_CODE
         # output, s = Open3.capture2e("ruby", "-e", inline_ruby)

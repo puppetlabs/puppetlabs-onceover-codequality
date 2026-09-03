@@ -1,5 +1,5 @@
 # Support for checking syntax of Puppetfile
-class Onceover
+class PuppetlabsOnceover
   module CodeQuality
     module Puppetfile
       def self.puppetfile

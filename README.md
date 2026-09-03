@@ -1,6 +1,6 @@
-# Onceover::CodeQuality
+# PuppetlabsOnceover::CodeQuality
 
-This is the Code Quality plugin for [Onceover](https://github.com/voxpupuli/onceover), _The gateway drug to automated infrastructure testing with Puppet_
+This is the Code Quality plugin for [puppetlabs-onceover](https://github.com/puppetlabs/puppetlabs-onceover), _The gateway drug to automated infrastructure testing with Puppet_
 
 ## What does it do?
 
@@ -15,53 +15,53 @@ For sure you can hack around with rake/make and hack something up each time but 
 
 ## Installation
 
-Install the `onceover-codequality` gem by adding it to your `Gemfile` or by running the following command:
+Install the `puppetlabs-onceover-codequality` gem by adding it to your `Gemfile` or by running the following command:
 
 ```shell
-gem install onceover-codequality
+gem install puppetlabs-onceover-codequality
 ```
 
 ## Usage
 
-Installing the codequality gem creates a new item within onceover's `run` command: `codequality`.  See `onceover run codequality --help` for all available options.
+Installing the codequality gem creates a new item within puppetlabs-onceover's `run` command: `codequality`.  See `puppetlabs-onceover run codequality --help` for all available options.
 
 The command will return `1` to the system if any tests fail, otherwise `0`, which makes it perfect to include in build pipelines.
 
 ### Check all code in the control repository for Lint and Syntax errors
 
 ```shell
-onceover run codequality
+puppetlabs-onceover run codequality
 ```
 
 ### Skip Lint check
 
 ```shell
-onceover run codequality --no_lint
+puppetlabs-onceover run codequality --no_lint
 ```
 
 ### Skip Puppet syntax check
 
 ```shell
-onceover run codequality --no_syntax
+puppetlabs-onceover run codequality --no_syntax
 ```
 
 ### Skip Puppetfile syntax check
 
 ```shell
-onceover run codequality --no_puppetfile
+puppetlabs-onceover run codequality --no_puppetfile
 ```
 
 ### Skip documentation generation
 
 ```shell
-onceover run codequality --no_docs
+puppetlabs-onceover run codequality --no_docs
 ```
 
 ### Use custom lint setting
 
-Create a file `puppet-lint.rc` in the directory you run `onceover codequality`
+Create a file `puppet-lint.rc` in the directory you run `puppetlabs-onceover codequality`
 from and it will be automatically used by Puppet Lint. If missing, the built-in
-defaults from `lib/onceover/codequality/lint.rb` will be used.
+defaults from `lib/puppetlabs-onceover/codequality/lint.rb` will be used.
 
 
 ## Sample output
@@ -69,7 +69,7 @@ defaults from `lib/onceover/codequality/lint.rb` will be used.
 ### All clear
 
 ```shell
-$ onceover run codequality
+$ puppetlabs-onceover run codequality
 INFO   -> Checking for lint...
 INFO   -> checking manifests
 INFO   -> checking site/role
@@ -83,7 +83,7 @@ INFO   -> Code Quality tests passed, have a nice day
 ### Lint and syntax errors
 
 ```shell
-$ onceover run codequality
+$ puppetlabs-onceover run codequality
 INFO   -> Checking for lint...
 INFO   -> checking manifests
 INFO   -> checking site/role
@@ -104,7 +104,7 @@ $ echo $?
 
 **`WARN: Unresolved specs during Gem::Specification.reset`?**
 
-I get these errors when I run `onceover run codequality` but everything seems to work, what gives?:
+I get these errors when I run `puppetlabs-onceover run codequality` but everything seems to work, what gives?:
 
 ```shell
 WARN: Unresolved specs during Gem::Specification.reset:
@@ -118,7 +118,7 @@ Please report a bug if this causes problems.
 Beats me - something to do with rubygems.  The best way to beat this message is to use [bundler](https://github.com/bundler/bundler) which basically you should already be doing anyway (for your own sanity):
 
 ```shell
-bundle exec onceover run codequality
+bundle exec puppetlabs-onceover run codequality
 ```
 
 **What are you using under-the-hood?**

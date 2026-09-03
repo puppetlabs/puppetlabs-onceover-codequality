@@ -1,4 +1,4 @@
-class Onceover
+class PuppetlabsOnceover
   module CodeQuality
     module Lint
       # Apply linting to the manifests directory and each module under `site`
