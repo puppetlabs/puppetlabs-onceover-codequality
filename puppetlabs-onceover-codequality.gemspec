@@ -5,14 +5,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "onceover/codequality/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "onceover-codequality"
+  spec.name          = "puppetlabs-onceover-codequality"
   spec.version       = Onceover::CodeQuality::VERSION
-  spec.authors       = ["Dylan Ratcliffe", 'Vox Pupuli']
-  spec.email         = ["voxpupuli@groups.io"]
+  spec.authors       = ["Puppet, Inc."]
+  spec.email         = ["modules-team@puppet.com"]
   spec.license       = "Apache-2.0"
 
   spec.summary       = %q{Lint and syntax validation for onceover}
-  spec.homepage      = "https://github.com/voxpupuli/onceover-codequality"
+  spec.homepage      = "https://github.com/puppetlabs/puppetlabs-onceover-codequality"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
