@@ -22,4 +22,20 @@ RSpec.describe PuppetlabsOnceover::CodeQuality::Syntax do
       expect(PuppetlabsOnceover::CodeQuality::Syntax.puppet).to be true
     end
   end
+
+  it "also runs the additional python YAML validation when python+pyyaml are available" do
+    Dir.chdir "spec/testcase/good_syntax" do
+      # This machine's `python` (as opposed to `python3`) may or may not have pyyaml
+      # installed, so stub the availability check to force that branch and stub the
+      # actual script invocation rather than depending on real python/pyyaml presence.
+      allow(PuppetlabsOnceover::CodeQuality::Syntax).to receive(:system)
+        .with("python --version && python -c 'import yaml'", err: File::NULL)
+        .and_return(true)
+      allow(PuppetlabsOnceover::CodeQuality::Executor).to receive(:run) do
+        ["", true]
+      end
+
+      expect(PuppetlabsOnceover::CodeQuality::Syntax.puppet).to be true
+    end
+  end
 end

@@ -2,6 +2,7 @@
 .idea/
 .rspec_status
 .vendor/
+mise.toml
 *.gem
 **/.yardoc
 **/REFERENCE.md
