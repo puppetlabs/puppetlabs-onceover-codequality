@@ -21,11 +21,10 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = Gem::Requirement.new('>= 3.2')
 
-  spec.add_development_dependency "rake", "~> 13.3"
-  spec.add_development_dependency "rspec", "~> 3.13"
-
-  spec.add_runtime_dependency 'openvox-strings', '>= 5.0', '< 8.0'
-  spec.add_runtime_dependency 'puppetlabs-onceover', '~> 5.0'
-  spec.add_runtime_dependency 'puppetlabs-syntax', '~> 7.0'
-  spec.add_runtime_dependency 'puppet-lint', '~> 5.1'
+  spec.add_dependency 'openvox-strings', '>= 5.0', '< 8.0'
+  spec.add_dependency 'puppetlabs-onceover', '~> 5.0'
+  spec.add_dependency 'puppetlabs-syntax', '~> 7.0'
+  spec.add_dependency 'puppet-lint', '~> 5.1'
+  spec.add_dependency 'rake', '~> 13.3'
+  spec.add_dependency 'rspec', '~> 3.13'
 end
