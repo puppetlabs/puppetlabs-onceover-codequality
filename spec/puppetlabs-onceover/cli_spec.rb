@@ -3,7 +3,7 @@ require "puppetlabs-onceover/cli"
 require "puppetlabs-onceover/codequality"
 require "puppetlabs-onceover/codequality/cli"
 
-RSpec.describe PuppetlabsOnceover::CodeQuality::CLI do
+RSpec.shared_context "codequality cli command" do
   let(:exit_calls) { [] }
 
   before(:each) do
@@ -22,8 +22,12 @@ RSpec.describe PuppetlabsOnceover::CodeQuality::CLI do
     # actually terminate the rspec process.
     PuppetlabsOnceover::CodeQuality::CLI.command.run(argv, {}, hard_exit: false)
   end
+end
 
-  it "runs all four checks by default and reports success when everything passes" do
+RSpec.describe "PuppetlabsOnceover::CodeQuality::CLI, when everything passes" do
+  include_context "codequality cli command"
+
+  it "runs all four checks by default and reports success" do
     allow(PuppetlabsOnceover::CodeQuality::Puppetfile).to receive(:puppetfile).and_return(true)
     allow(PuppetlabsOnceover::CodeQuality::Syntax).to receive(:puppet).and_return(true)
     allow(PuppetlabsOnceover::CodeQuality::Lint).to receive(:puppet).and_return(true)
@@ -38,7 +42,22 @@ RSpec.describe PuppetlabsOnceover::CodeQuality::CLI do
     expect(exit_calls).to be_empty
   end
 
-  it "skips puppetfile/syntax/lint/docs checks when the corresponding --no-* flag is given" do
+  it "passes html_docs through to the Docs check when --html_docs is given" do
+    allow(PuppetlabsOnceover::CodeQuality::Puppetfile).to receive(:puppetfile).and_return(true)
+    allow(PuppetlabsOnceover::CodeQuality::Syntax).to receive(:puppet).and_return(true)
+    allow(PuppetlabsOnceover::CodeQuality::Lint).to receive(:puppet).and_return(true)
+    allow(PuppetlabsOnceover::CodeQuality::Docs).to receive(:puppet_strings).and_return(true)
+
+    run_command(['--html_docs'])
+
+    expect(PuppetlabsOnceover::CodeQuality::Docs).to have_received(:puppet_strings).with(true)
+  end
+end
+
+RSpec.describe "PuppetlabsOnceover::CodeQuality::CLI, when a --no_* flag is given" do
+  include_context "codequality cli command"
+
+  it "skips puppetfile/syntax/lint/docs checks for the corresponding flag" do
     allow(PuppetlabsOnceover::CodeQuality::Puppetfile).to receive(:puppetfile)
     allow(PuppetlabsOnceover::CodeQuality::Syntax).to receive(:puppet)
     allow(PuppetlabsOnceover::CodeQuality::Lint).to receive(:puppet)
@@ -51,19 +70,12 @@ RSpec.describe PuppetlabsOnceover::CodeQuality::CLI do
     expect(PuppetlabsOnceover::CodeQuality::Lint).not_to have_received(:puppet)
     expect(PuppetlabsOnceover::CodeQuality::Docs).not_to have_received(:puppet_strings)
   end
+end
 
-  it "passes html_docs through to the Docs check when --html-docs is given" do
-    allow(PuppetlabsOnceover::CodeQuality::Puppetfile).to receive(:puppetfile).and_return(true)
-    allow(PuppetlabsOnceover::CodeQuality::Syntax).to receive(:puppet).and_return(true)
-    allow(PuppetlabsOnceover::CodeQuality::Lint).to receive(:puppet).and_return(true)
-    allow(PuppetlabsOnceover::CodeQuality::Docs).to receive(:puppet_strings).and_return(true)
+RSpec.describe "PuppetlabsOnceover::CodeQuality::CLI, when a check fails" do
+  include_context "codequality cli command"
 
-    run_command(['--html_docs'])
-
-    expect(PuppetlabsOnceover::CodeQuality::Docs).to have_received(:puppet_strings).with(true)
-  end
-
-  it "exits 1 and logs a failure message when any check fails" do
+  it "exits 1 and logs a failure message" do
     allow(PuppetlabsOnceover::CodeQuality::Puppetfile).to receive(:puppetfile).and_return(true)
     allow(PuppetlabsOnceover::CodeQuality::Syntax).to receive(:puppet).and_return(false)
     allow(PuppetlabsOnceover::CodeQuality::Lint).to receive(:puppet).and_return(true)

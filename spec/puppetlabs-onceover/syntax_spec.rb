@@ -29,9 +29,9 @@ RSpec.describe PuppetlabsOnceover::CodeQuality::Syntax do
       # installed, so stub the availability check to force that branch and stub the
       # actual script invocation rather than depending on real python/pyyaml presence.
       allow(PuppetlabsOnceover::CodeQuality::Syntax).to receive(:system)
-        .with("python --version && python -c 'import yaml'", :err => File::NULL)
+        .with("python --version && python -c 'import yaml'", err: File::NULL)
         .and_return(true)
-      allow(PuppetlabsOnceover::CodeQuality::Executor).to receive(:run) do |*args|
+      allow(PuppetlabsOnceover::CodeQuality::Executor).to receive(:run) do
         ["", true]
       end
 
