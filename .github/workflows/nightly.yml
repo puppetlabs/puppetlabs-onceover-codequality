@@ -63,4 +63,4 @@ jobs:
       - name: "rubocop"
         run: bundle exec rubocop --format github
       - name: "spec"
-        run: bundle exec rake full_tests
+        run: bundle exec rake spec
