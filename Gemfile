@@ -2,7 +2,7 @@
 gemsource_default = ENV['GEM_SOURCE'] || 'https://rubygems.org'
 gemsource_puppetcore = if ENV['GEM_SOURCE']
                          gemsource_default
-                       elsif ENV['PUPPET_FORGE_TOKEN']
+                       elsif ENV['PUPPET_FORGE_TOKEN'] && !ENV['PUPPET_FORGE_TOKEN'].empty?
                          'https://rubygems-puppetcore.puppet.com'
                        else
                          ENV['GEM_SOURCE_PUPPETCORE'] || gemsource_default
@@ -23,6 +23,15 @@ gemspec
 # flavour") -- and CI's per-matrix-job PUPPET_GEM_VERSION env var had nothing
 # in the Gemfile to actually consume it.
 gem 'puppet', ENV['PUPPET_GEM_VERSION'] || '~> 8', source: gemsource_puppetcore
+
+# facter is a runtime dependency of puppet, but pinning `puppet`'s own source
+# does NOT pin its transitive dependencies to that same source -- bundler
+# still resolves facter from whichever source(s) declare it, so without this
+# explicit pin facter would silently keep resolving from public rubygems.org
+# (built from the public facter repo) even when puppet itself correctly comes
+# from Puppetcore (built from the private facter-private source). Pin it
+# explicitly so both come from the same place.
+gem 'facter', source: gemsource_puppetcore
 
 # Windows platform runtime deps. The published puppet/onceover rubygems.org
 # artefacts are built on Linux and guard `ffi` / `win32ole` with build-host
